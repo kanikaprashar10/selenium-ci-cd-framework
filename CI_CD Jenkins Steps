@@ -9,7 +9,25 @@
 	
 5. Create the Jenkinsfile and write the Jenkins Pipelining steps
 
-6. Create Pipeline project in Jenkins Broswer
+6. Open GitHub in Browser and create new Repository like(Repository name: selenium-ci-cd-framework)
 
-7. Paste the JenkinsFile data in your jenkins Project
+7. Come back to Eclipse Terminal (K:\Eclipse_Workspace\selenium-ci-cd-framework>)
+
+		git remote -v
+		
+		git push -u origin master
 	
+8. Create Pipeline project in Jenkins Broswer
+
+	Definition:       Pipeline script from SCM
+	SCM:              Git
+	Repository URL:   https://github.com/kanikaprashar10/selenium-ci-cd-framework.git
+	Branch:           */master
+	Script Path:      Jenkinsfile
+	
+9. Click on Save and Build Now
+
+	
+
+
+

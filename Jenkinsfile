@@ -2,6 +2,15 @@ pipeline
 {
 
     agent any
+    
+    parameters 
+    {
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'firefox', 'edge'],
+            description: 'Select browser for Selenium tests'
+        	)
+    }
 
     stages 
     {
