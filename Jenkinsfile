@@ -20,6 +20,7 @@ pipeline
             steps 
             {
                 echo 'Checking out source code...'
+                checkout scm
             }
         }
 
@@ -35,7 +36,7 @@ pipeline
         {
             steps 
             {
-                bat 'mvn test -Dbrowser=chrome'
+                bat 'mvn test -Dbrowser=${params.BROWSER}'
             }
         }
     }

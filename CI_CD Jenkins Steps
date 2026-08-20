@@ -27,6 +27,21 @@
 	
 9. Click on Save and Build Now
 
+10. If you want to change in Eclipse Than you have to update the GitHub through Eclipse Terminal
+
+	Suppose I have Update the Jenkinsfile in Eclipse than i need to update the git 
+		
+	git status
+	git add .
+	git commit -m "Updated application URL"
+	git push
+
+
+11. we cannot run the program directly while data is connected with GitHub and 
+	
+	Because you are using Jenkins Pipeline, you normally don't need to run the test from Eclipse.
+	
+	we need to just run the UPDATED Jenkins BUILD Now.
 	
 
 
