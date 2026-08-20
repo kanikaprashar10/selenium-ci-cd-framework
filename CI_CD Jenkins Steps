@@ -33,7 +33,7 @@
 		
 	git status
 	git add .
-	git commit -m "Updated application URL"
+	git commit -m "Updated Jenkinsfile"
 	git push
 
 

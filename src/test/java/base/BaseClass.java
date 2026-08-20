@@ -17,6 +17,9 @@ public class BaseClass
     public void setUp(String browser) 
     {
         //driver = new ChromeDriver();
+		
+		browser = System.getProperty("browser");
+		
 		System.out.println("=================================");
 		System.out.println("Browser being used: " + browser);
 		System.out.println("=================================");
