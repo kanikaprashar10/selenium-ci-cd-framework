@@ -1,0 +1,15 @@
+1. Create the BaseClass
+
+2. Create LoginTest Class 
+
+3. Run you LoginTest Class. It will show only one Test Case
+
+4. Create the TestNG.xml file and then runs the Test Suits. It runs all the three browser
+	means Parallel execution.
+	
+5. Create the Jenkinsfile and write the Jenkins Pipelining steps
+
+6. Create Pipeline project in Jenkins Broswer
+
+7. Paste the JenkinsFile data in your jenkins Project
+	
