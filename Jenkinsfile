@@ -36,7 +36,7 @@ pipeline
         {
             steps 
             {
-                bat 'mvn test -Dbrowser=${params.BROWSER}'
+                bat "mvn test -Dbrowser=${params.BROWSER}"
             }
         }
     }
