@@ -10,7 +10,7 @@ pipeline
         {
             steps 
             {
-                echo 'Checking out source code...'
+                echo 'Checking out source code from git...'
                 checkout scm
             }
         }

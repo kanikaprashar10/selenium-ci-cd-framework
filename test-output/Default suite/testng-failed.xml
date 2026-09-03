@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="googleTest"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- tests.LoginTest -->
     </classes>

@@ -2,42 +2,37 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.AfterMethod;
 
 public class BaseClass {
 
-    public WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeMethod
-    public void setUp() {
+    @Parameters("browser")
+    public void setUp(String browser) {
 
-        String browser = System.getProperty("browser", "chrome");
+        	
+        System.out.println("Browser: " + browser);
 
-        System.out.println("Browser being used: -------" + browser+"--------");
-        
         if (browser.equalsIgnoreCase("chrome")) {
-
             driver = new ChromeDriver();
 
         } else if (browser.equalsIgnoreCase("firefox")) {
-
             driver = new FirefoxDriver();
 
         } else if (browser.equalsIgnoreCase("edge")) {
-
             driver = new EdgeDriver();
 
         } else {
-
-            throw new IllegalArgumentException(
-                    "Browser not supported: " + browser);
+            System.out.println("Browser not supported: " + browser);
         }
 
         driver.manage().window().maximize();
-
         driver.get("https://www.google.com");
     }
 
