@@ -2,16 +2,7 @@ pipeline
 {
 
     agent any
-    
-    parameters 
-    {
-        choice(
-            name: 'BROWSER',
-            choices: ['chrome', 'firefox', 'edge'],
-            description: 'Select browser for Selenium tests'
-        	)
-    }
-
+   
     stages 
     {
 
@@ -32,13 +23,29 @@ pipeline
             }
         }
 
-        stage('Test') 
-        {
-            steps 
-            {
-                bat "mvn test -Dbrowser=${params.BROWSER}"
+       
+        //=======automatically run Chrome + Firefox + Edge====
+        stage('Chrome Test') {
+            steps {
+				bat 'echo Running chrome'
+                bat 'mvn test -Dbrowser=chrome'
             }
         }
+
+        stage('Firefox Test') {
+            steps {
+				bat 'echo Running firefox'
+                bat 'mvn test -Dbrowser=firefox'
+            }
+        }
+
+        stage('Edge Test') {
+            steps {
+				bat 'echo Running edge'
+                bat 'mvn test -Dbrowser=edge'
+            }
+        }
+        
     }
 
     post 		//The post section runs after the pipeline finishes.
