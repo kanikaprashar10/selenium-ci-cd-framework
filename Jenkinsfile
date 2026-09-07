@@ -2,63 +2,42 @@ pipeline {
 
     agent any
 
-    parameters {
-
-        choice(
-            name: 'BROWSER',
-            choices: ['chrome', 'firefox', 'edge'],
-            description: 'Select browser for Selenium tests'
-        )
-    }
-
     stages {
 
         stage('Checkout') {
-
             steps {
-
-                echo 'Checking out source code...'
-
-                checkout scm
+                git 'https://github.com/kanikaprashar10/selenium-ci-cd-framework.git'
             }
         }
 
-        stage('Build') {
+        stage('Cross Browser Testing') {
 
-            steps {
+            parallel {
 
-                echo 'Building Maven project...'
+                stage('Chrome') {
+                    steps {
+                        bat 'mvn test -Dbrowser=chrome'
+                    }
+                }
 
-                bat 'mvn clean compile'
-            }
-        }
+                stage('Firefox') {
+                    steps {
+                        bat 'mvn test -Dbrowser=firefox'
+                    }
+                }
 
-        stage('Run Tests') {
-
-            steps {
-
-                echo "Running tests on ${params.BROWSER}"
-
-                bat "mvn test -Dbrowser=${params.BROWSER}"
+                stage('Edge') {
+                    steps {
+                        bat 'mvn test -Dbrowser=edge'
+                    }
+                }
             }
         }
     }
 
     post {
-
         always {
-
-            echo 'Pipeline execution completed.'
-        }
-
-        success {
-
-            echo "Tests passed on ${params.BROWSER}"
-        }
-
-        failure {
-
-            echo "Tests failed on ${params.BROWSER}"
+            junit 'target/surefire-reports/*.xml'
         }
     }
 }
