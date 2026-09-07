@@ -12,9 +12,13 @@ public class LoginTest extends BaseClass {
 
         System.out.println("========Running Login Test========");
 
+        System.out.println();
+        
         String title = driver.getTitle();
 
         System.out.println("Title =======" + title+"===========");
+        
+        System.out.println();
 
         Assert.assertTrue(title.contains("Google"));
     }

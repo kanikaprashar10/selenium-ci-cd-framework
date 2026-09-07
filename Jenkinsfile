@@ -23,9 +23,13 @@ pipeline
             }
         }
 
-       
+        stage('Run Tests') {
+            steps {
+                bat 'mvn test'
+            }
+        }
         //=======automatically run Chrome + Firefox + Edge====
-        stage('Chrome Test') {
+       /* stage('Chrome Test') {
             steps {
 				bat 'echo Running chrome'
                 bat 'mvn test -Dbrowser=chrome'
@@ -44,7 +48,7 @@ pipeline
 				bat 'echo Running edge'
                 bat 'mvn test -Dbrowser=edge'
             }
-        }
+        }*/
         
     }
 
