@@ -1,72 +1,64 @@
-pipeline 
-{
+pipeline {
 
     agent any
-   
-    stages 
-    {
 
-        stage('Checkout') 
-        {
-            steps 
-            {
-                echo 'Checking out source code from git...'
+    parameters {
+
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'firefox', 'edge'],
+            description: 'Select browser for Selenium tests'
+        )
+    }
+
+    stages {
+
+        stage('Checkout') {
+
+            steps {
+
+                echo 'Checking out source code...'
+
                 checkout scm
             }
         }
 
-        stage('Build') 
-        {
-            steps
-            {
+        stage('Build') {
+
+            steps {
+
+                echo 'Building Maven project...'
+
                 bat 'mvn clean compile'
             }
         }
 
         stage('Run Tests') {
-            steps {
-                bat 'mvn test'
-            }
-        }
-        //=======automatically run Chrome + Firefox + Edge====
-       /* stage('Chrome Test') {
-            steps {
-				bat 'echo Running chrome'
-                bat 'mvn test -Dbrowser=chrome'
-            }
-        }
 
-        stage('Firefox Test') {
             steps {
-				bat 'echo Running firefox'
-                bat 'mvn test -Dbrowser=firefox'
+
+                echo "Running tests on ${params.BROWSER}"
+
+                bat "mvn test -Dbrowser=${params.BROWSER}"
             }
         }
-
-        stage('Edge Test') {
-            steps {
-				bat 'echo Running edge'
-                bat 'mvn test -Dbrowser=edge'
-            }
-        }*/
-        
     }
 
-    post 		//The post section runs after the pipeline finishes.
-    { 
-        always 
-        {
+    post {
+
+        always {
+
             echo 'Pipeline execution completed.'
         }
 
-        success 
-        {
-            echo 'Tests passed successfully.'
+        success {
+
+            echo "Tests passed on ${params.BROWSER}"
         }
 
-        failure 
-        {
-            echo 'Tests failed.'
+        failure {
+
+            echo "Tests failed on ${params.BROWSER}"
         }
     }
 }

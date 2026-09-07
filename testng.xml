@@ -3,23 +3,8 @@
 
 <suite name="Cross Browser Suite">
 	
-	<parameter name="browser" value="chrome"/>
-    <test name="Chrome Test">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="tests.LoginTest"/>
-        </classes>
-    </test>
-
-    <test name="Firefox Test">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="tests.LoginTest"/>
-        </classes>
-    </test>
-
-    <test name="Edge Test">
-        <parameter name="browser" value="edge"/>
+	
+    <test name="Login Test">
         <classes>
             <class name="tests.LoginTest"/>
         </classes>

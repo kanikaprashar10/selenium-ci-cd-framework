@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterMethod;
 
 public class BaseClass {
@@ -13,9 +12,9 @@ public class BaseClass {
     protected WebDriver driver;
 
     @BeforeMethod
-    @Parameters("browser")
-    public void setUp(String browser) {
-
+    public void setUp() {
+    	
+    	String browser = System.getProperty("browser","chrome");
         	
         System.out.println("Browser: " + browser);
 
