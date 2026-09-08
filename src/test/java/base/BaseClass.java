@@ -60,7 +60,6 @@ public class BaseClass {
 
             // Headless works in Jenkins and also works in Eclipse
             chromeOptions.addArguments("--headless=new");
-            chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--window-size=1920,1080");
 
             driver = new ChromeDriver(chromeOptions);
@@ -82,7 +81,6 @@ public class BaseClass {
 
             // Jenkins runs as a Windows service
             edgeOptions.addArguments("--headless=new");
-            edgeOptions.addArguments("--disable-gpu");
             edgeOptions.addArguments("--window-size=1920,1080");
 
             driver = new EdgeDriver(edgeOptions);
