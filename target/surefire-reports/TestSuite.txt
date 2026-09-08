@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 2.835 s <<< FAILURE! -- in TestSuite
-tests.LoginTest.setUp -- Time elapsed: 2.677 s <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 10.49 s <<< FAILURE! -- in TestSuite
+tests.LoginTest.setUp[firefox](0) -- Time elapsed: 10.35 s <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
 Could not start a new session. Response code 500. Message: Expected browser binary location, but unable to find binary in default location, no 'moz:firefoxOptions.binary' capability provided, and no binary flag set on the command line 
 Host info: host: 'ANAAYA_LAPTOP', ip: '192.168.1.11'

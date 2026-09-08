@@ -43,6 +43,8 @@
 	
 	we need to just run the UPDATED Jenkins BUILD Now.
 	
+	
+12 . mvn clean test -Dbrowser=chrome ---->run on terminal
 
 
 

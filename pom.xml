@@ -7,12 +7,6 @@
   
     <dependencies>
     
-    <dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>5.9.2</version>
-	</dependency>
-
         <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -28,12 +22,19 @@
             <scope>test</scope>
         </dependency>
 
+	<!-- WebDriverManager-->
+	<dependency>
+	    <groupId>io.github.bonigarcia</groupId>
+	    <artifactId>webdrivermanager</artifactId>
+	    <version>5.9.3</version>
+	</dependency>
+	
      
 
     </dependencies>
 
    <build>
-    <plugins>
+   <plugins>
 
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -49,8 +50,9 @@
         </plugin>
 
     </plugins>
-</build>
-  
+   
+   </build>
+    
   
   
 </project>
